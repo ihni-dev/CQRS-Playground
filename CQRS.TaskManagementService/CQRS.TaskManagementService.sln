@@ -21,6 +21,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Migrations", "Migrations", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRS.TaskManagementService.Utils.Migrations", "Utils\Migrations\CQRS.TaskManagementService.Utils.Migrations\CQRS.TaskManagementService.Utils.Migrations.csproj", "{8500BDB9-5D91-4F93-9394-3DD8BEC91EC6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRS.TaskManagementService.TaskManagement.Commands", "Core\Task Management\CQRS.TaskManagementService.TaskManagement.Commands\CQRS.TaskManagementService.TaskManagement.Commands.csproj", "{48C9C114-AD86-410A-9CFF-153182F271BF}"
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -73,6 +75,18 @@ Global
 		{8500BDB9-5D91-4F93-9394-3DD8BEC91EC6}.Release|x64.Build.0 = Release|Any CPU
 		{8500BDB9-5D91-4F93-9394-3DD8BEC91EC6}.Release|x86.ActiveCfg = Release|Any CPU
 		{8500BDB9-5D91-4F93-9394-3DD8BEC91EC6}.Release|x86.Build.0 = Release|Any CPU
+		{48C9C114-AD86-410A-9CFF-153182F271BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48C9C114-AD86-410A-9CFF-153182F271BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48C9C114-AD86-410A-9CFF-153182F271BF}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{48C9C114-AD86-410A-9CFF-153182F271BF}.Debug|x64.Build.0 = Debug|Any CPU
+		{48C9C114-AD86-410A-9CFF-153182F271BF}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{48C9C114-AD86-410A-9CFF-153182F271BF}.Debug|x86.Build.0 = Debug|Any CPU
+		{48C9C114-AD86-410A-9CFF-153182F271BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48C9C114-AD86-410A-9CFF-153182F271BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48C9C114-AD86-410A-9CFF-153182F271BF}.Release|x64.ActiveCfg = Release|Any CPU
+		{48C9C114-AD86-410A-9CFF-153182F271BF}.Release|x64.Build.0 = Release|Any CPU
+		{48C9C114-AD86-410A-9CFF-153182F271BF}.Release|x86.ActiveCfg = Release|Any CPU
+		{48C9C114-AD86-410A-9CFF-153182F271BF}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{FE9FA1C0-BF30-4C97-A861-620A3DF9BDA1} = {52E74A43-18F9-4BFB-BE01-422D829B3000}
@@ -81,5 +95,6 @@ Global
 		{1533C1D7-7ECC-4996-9695-DC9D06247405} = {B028762B-D79C-4F98-8433-AA430948FFF3}
 		{02A7A400-21E9-4114-9710-5604FAA448A0} = {04817D70-5F4B-40EA-9A25-93F2B56BDEDC}
 		{8500BDB9-5D91-4F93-9394-3DD8BEC91EC6} = {02A7A400-21E9-4114-9710-5604FAA448A0}
+		{48C9C114-AD86-410A-9CFF-153182F271BF} = {FE9FA1C0-BF30-4C97-A861-620A3DF9BDA1}
 	EndGlobalSection
 EndGlobal
