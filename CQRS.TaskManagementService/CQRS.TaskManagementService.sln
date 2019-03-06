@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRS.TaskManagementService.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRS.TaskManagementService.TaskManagement.Commands", "Core\Task Management\CQRS.TaskManagementService.TaskManagement.Commands\CQRS.TaskManagementService.TaskManagement.Commands.csproj", "{48C9C114-AD86-410A-9CFF-153182F271BF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRS.TaskManagementService.TaskManagement.ReadModels", "Core\Task Management\CQRS.TaskManagementService.TaskManagement.ReadModels\CQRS.TaskManagementService.TaskManagement.ReadModels.csproj", "{93055F55-BC68-44B1-9D35-BD5C0BE4BBE9}"
+EndProject
 Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -87,6 +89,18 @@ Global
 		{48C9C114-AD86-410A-9CFF-153182F271BF}.Release|x64.Build.0 = Release|Any CPU
 		{48C9C114-AD86-410A-9CFF-153182F271BF}.Release|x86.ActiveCfg = Release|Any CPU
 		{48C9C114-AD86-410A-9CFF-153182F271BF}.Release|x86.Build.0 = Release|Any CPU
+		{93055F55-BC68-44B1-9D35-BD5C0BE4BBE9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93055F55-BC68-44B1-9D35-BD5C0BE4BBE9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93055F55-BC68-44B1-9D35-BD5C0BE4BBE9}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{93055F55-BC68-44B1-9D35-BD5C0BE4BBE9}.Debug|x64.Build.0 = Debug|Any CPU
+		{93055F55-BC68-44B1-9D35-BD5C0BE4BBE9}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{93055F55-BC68-44B1-9D35-BD5C0BE4BBE9}.Debug|x86.Build.0 = Debug|Any CPU
+		{93055F55-BC68-44B1-9D35-BD5C0BE4BBE9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93055F55-BC68-44B1-9D35-BD5C0BE4BBE9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93055F55-BC68-44B1-9D35-BD5C0BE4BBE9}.Release|x64.ActiveCfg = Release|Any CPU
+		{93055F55-BC68-44B1-9D35-BD5C0BE4BBE9}.Release|x64.Build.0 = Release|Any CPU
+		{93055F55-BC68-44B1-9D35-BD5C0BE4BBE9}.Release|x86.ActiveCfg = Release|Any CPU
+		{93055F55-BC68-44B1-9D35-BD5C0BE4BBE9}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{FE9FA1C0-BF30-4C97-A861-620A3DF9BDA1} = {52E74A43-18F9-4BFB-BE01-422D829B3000}
@@ -96,5 +110,6 @@ Global
 		{02A7A400-21E9-4114-9710-5604FAA448A0} = {04817D70-5F4B-40EA-9A25-93F2B56BDEDC}
 		{8500BDB9-5D91-4F93-9394-3DD8BEC91EC6} = {02A7A400-21E9-4114-9710-5604FAA448A0}
 		{48C9C114-AD86-410A-9CFF-153182F271BF} = {FE9FA1C0-BF30-4C97-A861-620A3DF9BDA1}
+		{93055F55-BC68-44B1-9D35-BD5C0BE4BBE9} = {FE9FA1C0-BF30-4C97-A861-620A3DF9BDA1}
 	EndGlobalSection
 EndGlobal
