@@ -27,11 +27,11 @@ namespace CQRS.TaskManagementService.WebApi
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.Run(async (context) =>
+            else
             {
-                await context.Response.WriteAsync("Hello World!");
-            });
+                app.UseHsts();
+            }
+            app.UseMvc();
         }
     }
 }
