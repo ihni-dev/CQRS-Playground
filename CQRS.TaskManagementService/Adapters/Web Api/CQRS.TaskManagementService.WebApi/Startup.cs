@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using CQRS.TaskManagementService.WebApi.CompositionRoot;
@@ -34,12 +34,12 @@ namespace CQRS.TaskManagementService.WebApi
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             services.AddSerilogLogger();
+            services.AddSerilogLoggerToEventFlow();
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             
             return ConfigureContainer(services);
         }
-
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
@@ -69,7 +69,6 @@ namespace CQRS.TaskManagementService.WebApi
                     c.IsAsynchronousSubscribersEnabled = true;
                 })
                 .AddAspNetCoreMetadataProviders()
-                .UseLibLog(LibLogProviders.Serilog)
                 .UseFilesEventStore(FilesEventStoreConfiguration.Create("./evt-store"))
                 .RegisterModules();
             

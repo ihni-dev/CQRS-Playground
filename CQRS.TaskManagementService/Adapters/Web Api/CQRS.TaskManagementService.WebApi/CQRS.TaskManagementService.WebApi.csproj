@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
@@ -20,5 +20,8 @@
     <ProjectReference Include="..\..\..\Core\Task Management\CQRS.TaskManagementService.TaskManagement.Commands\CQRS.TaskManagementService.TaskManagement.Commands.csproj" />
     <ProjectReference Include="..\..\..\Core\Task Management\CQRS.TaskManagementService.TaskManagement.Domain\CQRS.TaskManagementService.TaskManagement.Domain.csproj" />
     <ProjectReference Include="..\..\..\Core\Task Management\CQRS.TaskManagementService.TaskManagement.ReadModels\CQRS.TaskManagementService.TaskManagement.ReadModels.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CompositionRoot\Modules" />
   </ItemGroup>
 </Project>

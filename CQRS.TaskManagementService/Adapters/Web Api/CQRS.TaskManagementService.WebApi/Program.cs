@@ -32,11 +32,11 @@ namespace CQRS.TaskManagementService.WebApi
         private static void InitLogger()
         {
             Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Debug()
+                .MinimumLevel.Verbose()
                 .Enrich.FromLogContext()
-                .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+                .MinimumLevel.Override("Microsoft", LogEventLevel.Verbose)
                 .WriteTo.File("logs/log.log", rollingInterval: RollingInterval.Day)
-                .WriteTo.Console(restrictedToMinimumLevel: LogEventLevel.Information)
+                .WriteTo.Console()
                 .CreateLogger();
         }
 
