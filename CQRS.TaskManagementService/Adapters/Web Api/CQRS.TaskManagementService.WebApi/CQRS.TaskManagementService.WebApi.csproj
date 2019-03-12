@@ -2,20 +2,29 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <UserSecretsId>3E2D8E92-C0D8-4835-BA2A-9D75F3169C4F</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="EventFlow" Version="0.69.3772" />
+    <PackageReference Include="EventFlow.AspNetCore" Version="0.69.3772" />
+    <PackageReference Include="EventFlow.Autofac" Version="0.69.3772" />
+    <PackageReference Include="EventFlow.DependencyInjection" Version="0.69.3772" />
+    <PackageReference Include="EventFlow.Elasticsearch" Version="0.69.3772" />
+    <PackageReference Include="EventFlow.EventStores.EventStore" Version="0.69.3772" />
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Serilog" Version="2.8.0" />
     <PackageReference Include="Serilog.Sinks.File" Version="4.0.0" />
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
     <PackageReference Include="Serilog.AspNetCore" Version="2.1.1" />
-    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.3.1" />
-    <PackageReference Include="Autofac" Version="4.9.0" />
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.4.0" />
+    <PackageReference Include="Autofac" Version="4.9.1" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Core\Task Management\CQRS.TaskManagementService.TaskManagement.Commands\CQRS.TaskManagementService.TaskManagement.Commands.csproj" />
     <ProjectReference Include="..\..\..\Core\Task Management\CQRS.TaskManagementService.TaskManagement.Domain\CQRS.TaskManagementService.TaskManagement.Domain.csproj" />
     <ProjectReference Include="..\..\..\Core\Task Management\CQRS.TaskManagementService.TaskManagement.ReadModels\CQRS.TaskManagementService.TaskManagement.ReadModels.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="CompositionRoot\AutofacModules" />
   </ItemGroup>
 </Project>

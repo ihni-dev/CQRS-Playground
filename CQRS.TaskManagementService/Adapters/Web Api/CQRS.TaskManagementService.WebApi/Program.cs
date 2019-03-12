@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Serilog;
 using Serilog.Events;
 using System;
+using System.IO;
 
 namespace CQRS.TaskManagementService.WebApi
 {
@@ -31,17 +32,17 @@ namespace CQRS.TaskManagementService.WebApi
         private static void InitLogger()
         {
             Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Debug()
+                .MinimumLevel.Verbose()
                 .Enrich.FromLogContext()
-                .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+                .MinimumLevel.Override("Microsoft", LogEventLevel.Verbose)
                 .WriteTo.File("logs/log.log", rollingInterval: RollingInterval.Day)
-                .WriteTo.Console(restrictedToMinimumLevel: LogEventLevel.Warning)
+                .WriteTo.Console()
                 .CreateLogger();
         }
 
         private static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .ConfigureServices(services => services.AddAutofac())
+                .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseStartup<Startup>()
                 .UseSerilog();
     }
