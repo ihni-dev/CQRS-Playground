@@ -5,11 +5,11 @@ using EventFlow.Commands;
 
 namespace CQRS.TaskManagementService.TaskManagement.Commands.SetName
 {
-    public class SetNameHandler : CommandHandler<Board, BoardId, SetName>
+    public class ChangeBoardNameHandler : CommandHandler<Board, BoardId, ChangeBoardName>
     {
-        public override Task ExecuteAsync(Board aggregate, SetName command, CancellationToken cancellationToken)
+        public override Task ExecuteAsync(Board aggregate, ChangeBoardName command, CancellationToken cancellationToken)
         {
-            aggregate.SetName(command.Name);
+            aggregate.ChangeBoardName(command.BoardName);
             return Task.FromResult(0);
         }
     }
