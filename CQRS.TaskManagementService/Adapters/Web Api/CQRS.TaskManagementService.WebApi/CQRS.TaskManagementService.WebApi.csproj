@@ -2,6 +2,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <UserSecretsId>3E2D8E92-C0D8-4835-BA2A-9D75F3169C4F</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="EventFlow" Version="0.69.3772" />

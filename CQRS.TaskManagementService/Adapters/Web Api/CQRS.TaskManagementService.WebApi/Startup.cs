@@ -6,8 +6,9 @@ using EventFlow;
 using EventFlow.AspNetCore.Extensions;
 using EventFlow.AspNetCore.Middlewares;
 using EventFlow.Autofac.Extensions;
-using EventFlow.EventStores.Files;
-using EventFlow.Extensions;
+using EventFlow.Elasticsearch.Extensions;
+using EventFlow.EventStores.EventStore.Extensions;
+using EventStore.ClientAPI;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -19,7 +20,7 @@ namespace CQRS.TaskManagementService.WebApi
     public class Startup
     {
         public IContainer ApplicationContainer { get; private set; }
-        public IConfigurationRoot Configuration { get; private set; }
+        public IConfigurationRoot Configuration { get; }
         
         public Startup(IHostingEnvironment env)
         {
@@ -28,6 +29,10 @@ namespace CQRS.TaskManagementService.WebApi
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
+
+            if (env.IsDevelopment())
+                builder.AddUserSecrets<Startup>();
+            
             Configuration = builder.Build();
         }
         

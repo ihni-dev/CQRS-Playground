@@ -2,8 +2,7 @@
   "profiles": {
     "CQRS.TaskManagementService.WebApi": {
       "commandName": "Project",
-      "launchBrowser": true,
-      "applicationUrl": "http://localhost:8080;https://localhost:8888",
+      "launchBrowser": false,
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
