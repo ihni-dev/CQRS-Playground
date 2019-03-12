@@ -1,7 +1,6 @@
 using CQRS.TaskManagementService.WebApi.Logging;
 using EventFlow.Logs;
 using Microsoft.Extensions.DependencyInjection;
-using Log = Serilog.Log;
 
 namespace CQRS.TaskManagementService.WebApi
 {
@@ -9,13 +8,13 @@ namespace CQRS.TaskManagementService.WebApi
     {
         public static IServiceCollection AddSerilogLogger(this IServiceCollection services)
         {
-            services.AddSingleton(Log.Logger);
+            services.AddSingleton(Serilog.Log.Logger);
             return services;
         }
         
         public static IServiceCollection AddSerilogLoggerToEventFlow(this IServiceCollection services)
         {
-            services.AddSingleton<ILog>(new EventFlowSerilogLogger(Log.Logger));
+            services.AddSingleton<ILog>(new EventFlowSerilogLogger(Serilog.Log.Logger));
             return services;
         }
     }
