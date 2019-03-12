@@ -4,23 +4,30 @@ using EventFlow.Exceptions;
 
 namespace CQRS.TaskManagementService.TaskManagement.Domain
 {
-    public class Board : AggregateRoot<Board, BoardId>
+    public class Board : AggregateRoot<Board, BoardId>, IEmit<BoardCreated>, IEmit<BoardNameChanged>
     {
-        private string _name;
+        public string BoardName { get; protected set; } = string.Empty;
     
         public Board(BoardId id) : base(id) { }
-    
-        public void SetName(string name)
+
+        public void Create(string boardName)
         {
-            if (_name != null)
-                throw DomainError.With("Name already set");
+            Emit(new BoardCreated(boardName));
+        }
     
-            Emit(new NameSet(name));
+        public void ChangeBoardName(string newBoardName)
+        {
+            Emit(new BoardNameChanged(newBoardName));
         }
         
-        public void Apply(NameSet aggregateEvent)
+        public void Apply(BoardCreated aggregateEvent)
         {
-            _name = aggregateEvent.Name;
+            BoardName = aggregateEvent.BoardName;
+        }
+        
+        public void Apply(BoardNameChanged aggregateEvent)
+        {
+            BoardName = aggregateEvent.BoardName;
         }
     }
 }
