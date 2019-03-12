@@ -1,5 +1,6 @@
 using CQRS.TaskManagementService.TaskManagement.Commands.CreateBoard;
 using CQRS.TaskManagementService.TaskManagement.Commands.SetName;
+using CQRS.TaskManagementService.TaskManagement.Domain;
 using CQRS.TaskManagementService.TaskManagement.Domain.Events;
 using CQRS.TaskManagementService.TaskManagement.ReadModels;
 using EventFlow;
@@ -21,17 +22,23 @@ namespace CQRS.TaskManagementService.WebApi.CompositionRoot.EventFlowModules
 
         private void RegisterEvents(IEventFlowOptions eventFlowOptions)
         {
-            eventFlowOptions.AddEvents(typeof(NameSet));
+            eventFlowOptions.AddEvents(
+                typeof(BoardCreated),
+                typeof(BoardNameChanged));
         }
 
         private void RegisterCommands(IEventFlowOptions eventFlowOptions)
         {
-            eventFlowOptions.AddCommands(typeof(SetName));
+            eventFlowOptions.AddCommands(
+                typeof(CreateBoard),
+                typeof(ChangeBoardName));
         }
         
         private void RegisterCommandHandlers(IEventFlowOptions eventFlowOptions)
         {
-            eventFlowOptions.AddCommandHandlers(typeof(SetNameHandler));
+            eventFlowOptions.AddCommandHandlers(
+                typeof(CreateBoardHandler),
+                typeof(ChangeBoardNameHandler));
         }
 
         private void RegisterReadStores(IEventFlowOptions eventFlowOptions)
