@@ -23,6 +23,6 @@
     <ProjectReference Include="..\..\..\Core\Task Management\CQRS.TaskManagementService.TaskManagement.ReadModels\CQRS.TaskManagementService.TaskManagement.ReadModels.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="CompositionRoot\Modules" />
+    <Folder Include="CompositionRoot\AutofacModules" />
   </ItemGroup>
 </Project>
