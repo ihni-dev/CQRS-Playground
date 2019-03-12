@@ -1,9 +1,10 @@
-using Autofac;
+using CQRS.TaskManagementService.TaskManagement.Commands.CreateBoard;
 using CQRS.TaskManagementService.TaskManagement.Commands.SetName;
 using CQRS.TaskManagementService.TaskManagement.Domain.Events;
 using CQRS.TaskManagementService.TaskManagement.ReadModels;
 using EventFlow;
 using EventFlow.Configuration;
+using EventFlow.Elasticsearch.Extensions;
 using EventFlow.Extensions;
 
 namespace CQRS.TaskManagementService.WebApi.CompositionRoot.EventFlowModules
@@ -35,7 +36,7 @@ namespace CQRS.TaskManagementService.WebApi.CompositionRoot.EventFlowModules
 
         private void RegisterReadStores(IEventFlowOptions eventFlowOptions)
         {
-            eventFlowOptions.UseInMemoryReadStoreFor<BoardReadModel>();
+            eventFlowOptions.UseElasticsearchReadModel<BoardReadModel>();
         }
     }
 }

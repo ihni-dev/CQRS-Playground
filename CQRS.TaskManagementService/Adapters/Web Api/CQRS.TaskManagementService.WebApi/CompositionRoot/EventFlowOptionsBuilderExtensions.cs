@@ -5,9 +5,10 @@ namespace CQRS.TaskManagementService.WebApi.CompositionRoot
 {
     internal static class EventFlowOptionsBuilderExtensions
     {
-        internal static void RegisterModules(this IEventFlowOptions eventFlowOptions)
+        internal static IEventFlowOptions RegisterModules(this IEventFlowOptions eventFlowOptions)
         {
             eventFlowOptions.RegisterModule(new TaskManagementEventFlowModule());
+            return eventFlowOptions;
         }
     }
 }

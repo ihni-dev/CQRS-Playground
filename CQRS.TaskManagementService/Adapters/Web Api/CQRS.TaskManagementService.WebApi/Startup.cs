@@ -74,8 +74,9 @@ namespace CQRS.TaskManagementService.WebApi
                     c.IsAsynchronousSubscribersEnabled = true;
                 })
                 .AddAspNetCoreMetadataProviders()
-                .UseFilesEventStore(FilesEventStoreConfiguration.Create("./evt-store"))
-                .RegisterModules();
+                .RegisterModules()
+                .ConfigureElasticsearch(new Uri(Configuration["ElasticSearchConnectionString"]))
+                .UseEventStoreEventStore(new Uri(Configuration["EventStoreConnectionString"]), ConnectionSettings.Create().UseConsoleLogger().EnableVerboseLogging().Build());
             
             containerBuilder.Populate(services);
             containerBuilder.RegisterModules();
