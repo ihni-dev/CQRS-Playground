@@ -1,15 +1,24 @@
-﻿using Autofac.Extensions.DependencyInjection;
+﻿using System;
+using System.IO;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Serilog;
-using Serilog.Events;
-using System;
-using System.IO;
 
 namespace CQRS.TaskManagementService.WebApi
 {
-    public class Program
+    internal class Program
     {
+        private static IConfiguration Configuration { get; } = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json", false, true)
+            .AddJsonFile(
+                $"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production"}.json",
+                true)
+            .AddEnvironmentVariables()
+            .AddUserSecrets<Startup>()
+            .Build();
+
         public static void Main(string[] args)
         {
             InitLogger();
@@ -32,18 +41,16 @@ namespace CQRS.TaskManagementService.WebApi
         private static void InitLogger()
         {
             Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Verbose()
-                .Enrich.FromLogContext()
-                .MinimumLevel.Override("Microsoft", LogEventLevel.Verbose)
-                .WriteTo.File("logs/log.log", rollingInterval: RollingInterval.Day)
-                .WriteTo.Console()
+                .ReadFrom.Configuration(Configuration)
                 .CreateLogger();
         }
 
-        private static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
+        private static IWebHostBuilder CreateWebHostBuilder(string[] args)
+        {
+            return WebHost.CreateDefaultBuilder(args)
                 .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseStartup<Startup>()
-                .UseSerilog();
+                .UseSerilog(Log.Logger);
+        }
     }
 }

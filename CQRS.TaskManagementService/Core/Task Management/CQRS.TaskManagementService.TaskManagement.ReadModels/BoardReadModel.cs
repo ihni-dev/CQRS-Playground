@@ -6,7 +6,7 @@ using EventFlow.ReadStores;
 namespace CQRS.TaskManagementService.TaskManagement.ReadModels
 {
     public class BoardReadModel : IReadModel, IAmReadModelFor<Board, BoardId, BoardNameChanged>,
-                                                IAmReadModelFor<Board, BoardId, BoardCreated>
+        IAmReadModelFor<Board, BoardId, BoardCreated>
     {
         public string Id { get; set; }
         public string BoardName { get; set; }
@@ -16,7 +16,7 @@ namespace CQRS.TaskManagementService.TaskManagement.ReadModels
             Id = domainEvent.AggregateIdentity.Value;
             BoardName = domainEvent.AggregateEvent.BoardName;
         }
-        
+
         public void Apply(IReadModelContext context, IDomainEvent<Board, BoardId, BoardNameChanged> domainEvent)
         {
             BoardName = domainEvent.AggregateEvent.BoardName;

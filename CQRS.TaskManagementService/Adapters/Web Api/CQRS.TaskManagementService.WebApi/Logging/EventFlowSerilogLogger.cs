@@ -2,25 +2,27 @@ using System;
 using EventFlow.Logs;
 using Serilog;
 using Serilog.Events;
+using Log = EventFlow.Logs.Log;
 
 namespace CQRS.TaskManagementService.WebApi.Logging
 {
-    public class EventFlowSerilogLogger : EventFlow.Logs.Log
+    public class EventFlowSerilogLogger : Log
     {
         private readonly ILogger _logger;
-        
-        public EventFlowSerilogLogger(ILogger logger)
+
+        public EventFlowSerilogLogger(ILogger logger, bool isVerboseEnabled = true, bool isInformationEnabled = true,
+            bool isDebugEnabled = true)
         {
             _logger = logger;
-            IsVerboseEnabled = true;
-            IsInformationEnabled = true;
-            IsDebugEnabled = true;
+            IsVerboseEnabled = isVerboseEnabled;
+            IsInformationEnabled = isInformationEnabled;
+            IsDebugEnabled = isDebugEnabled;
         }
 
         protected override bool IsVerboseEnabled { get; }
         protected override bool IsInformationEnabled { get; }
         protected override bool IsDebugEnabled { get; }
-        
+
         public override void Write(LogLevel logLevel, string format, params object[] args)
         {
             _logger.Write(ParseLogLevel(logLevel), format, args);
