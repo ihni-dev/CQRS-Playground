@@ -2,13 +2,7 @@ using System;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using CQRS.TaskManagementService.WebApi.CompositionRoot;
-using EventFlow;
-using EventFlow.AspNetCore.Extensions;
 using EventFlow.AspNetCore.Middlewares;
-using EventFlow.Autofac.Extensions;
-using EventFlow.Elasticsearch.Extensions;
-using EventFlow.EventStores.EventStore.Extensions;
-using EventStore.ClientAPI;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -17,72 +11,46 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace CQRS.TaskManagementService.WebApi
 {
-    public class Startup
+    internal class Startup
     {
-        public IContainer ApplicationContainer { get; private set; }
-        public IConfigurationRoot Configuration { get; }
-        
-        public Startup(IHostingEnvironment env)
+        public Startup(IConfiguration configuration)
         {
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
-                .AddEnvironmentVariables();
+            Configuration = configuration;
+        }
 
-            if (env.IsDevelopment())
-                builder.AddUserSecrets<Startup>();
-            
-            Configuration = builder.Build();
-        }
-        
-        public IServiceProvider ConfigureServices(IServiceCollection services)
-        {
-            services.AddSerilogLogger();
-            services.AddSerilogLoggerToEventFlow();
-            services.AddMvc()
-                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
-            
-            return ConfigureContainer(services);
-        }
+        private IContainer ApplicationContainer { get; set; }
+        private IConfiguration Configuration { get; }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             if (env.IsDevelopment())
-            {
                 app.UseDeveloperExceptionPage();
-            }
             else
-            {
                 app.UseHsts();
-            }
-            
+
             app.UseHttpsRedirection();
             app.UseMiddleware<CommandPublishMiddleware>();
             app.UseMvc();
         }
-        
+
+        public IServiceProvider ConfigureServices(IServiceCollection services)
+        {
+            services.AddMvc()
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            return ConfigureContainer(services);
+        }
+
         private IServiceProvider ConfigureContainer(IServiceCollection services)
         {
             var containerBuilder = new ContainerBuilder();
-            
-            EventFlowOptions.New
-                .UseAutofacContainerBuilder(containerBuilder)
-                .Configure(c =>
-                {
-                    c.ThrowSubscriberExceptions = true;
-                    c.IsAsynchronousSubscribersEnabled = true;
-                })
-                .AddAspNetCoreMetadataProviders()
-                .RegisterModules()
-                .ConfigureElasticsearch(new Uri(Configuration["ElasticSearchConnectionString"]))
-                .UseEventStoreEventStore(new Uri(Configuration["EventStoreConnectionString"]), ConnectionSettings.Create().UseConsoleLogger().EnableVerboseLogging().Build());
-            
+
+            StartupExtensions.ConfigureEventFlow(Configuration, containerBuilder);
             containerBuilder.Populate(services);
             containerBuilder.RegisterModules();
-            
+
             ApplicationContainer = containerBuilder.Build();
-            
+
             return new AutofacServiceProvider(ApplicationContainer);
         }
     }

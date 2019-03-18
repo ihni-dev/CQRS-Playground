@@ -4,8 +4,9 @@ namespace CQRS.TaskManagementService.WebApi.CompositionRoot
 {
     internal static class AutofacContainerBuilderExtensions
     {
-        internal static void RegisterModules(this ContainerBuilder builder)
+        internal static ContainerBuilder RegisterModules(this ContainerBuilder builder)
         {
+            return builder;
         }
     }
 }

@@ -1,6 +1,5 @@
 using CQRS.TaskManagementService.TaskManagement.Commands.CreateBoard;
 using CQRS.TaskManagementService.TaskManagement.Commands.SetName;
-using CQRS.TaskManagementService.TaskManagement.Domain;
 using CQRS.TaskManagementService.TaskManagement.Domain.Events;
 using CQRS.TaskManagementService.TaskManagement.ReadModels;
 using EventFlow;
@@ -33,7 +32,7 @@ namespace CQRS.TaskManagementService.WebApi.CompositionRoot.EventFlowModules
                 typeof(CreateBoard),
                 typeof(ChangeBoardName));
         }
-        
+
         private void RegisterCommandHandlers(IEventFlowOptions eventFlowOptions)
         {
             eventFlowOptions.AddCommandHandlers(
