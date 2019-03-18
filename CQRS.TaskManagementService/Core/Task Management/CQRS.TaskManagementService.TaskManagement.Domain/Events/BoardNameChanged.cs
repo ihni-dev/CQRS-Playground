@@ -8,7 +8,7 @@ namespace CQRS.TaskManagementService.TaskManagement.Domain.Events
         {
             BoardName = boardName;
         }
-    
+
         public string BoardName { get; }
     }
 }

@@ -3,7 +3,7 @@ using EventFlow.Commands;
 
 namespace CQRS.TaskManagementService.TaskManagement.Commands.CreateBoard
 {
-    public class CreateBoard: Command<Board, BoardId>
+    public class CreateBoard : Command<Board, BoardId>
     {
         public CreateBoard(BoardId id, string boardName) : base(id)
         {
