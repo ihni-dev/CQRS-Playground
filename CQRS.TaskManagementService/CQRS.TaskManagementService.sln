@@ -1,37 +1,25 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.421
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29001.49
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{52E74A43-18F9-4BFB-BE01-422D829B3000}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Task Management", "Task Management", "{FE9FA1C0-BF30-4C97-A861-620A3DF9BDA1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRS.TaskManagementService.TaskManagement.Domain", "Core\Task Management\CQRS.TaskManagementService.TaskManagement.Domain\CQRS.TaskManagementService.TaskManagement.Domain.csproj", "{075FEB67-3921-437D-AF62-1BB260596BE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CQRS.TaskManagementService.TaskManagement.Domain", "Core\Task Management\CQRS.TaskManagementService.TaskManagement.Domain\CQRS.TaskManagementService.TaskManagement.Domain.csproj", "{075FEB67-3921-437D-AF62-1BB260596BE7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Adapters", "Adapters", "{791C8F2B-4685-406B-8A53-895344C5F41C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web Api", "Web Api", "{B028762B-D79C-4F98-8433-AA430948FFF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRS.TaskManagementService.WebApi", "Adapters\Web Api\CQRS.TaskManagementService.WebApi\CQRS.TaskManagementService.WebApi.csproj", "{1533C1D7-7ECC-4996-9695-DC9D06247405}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CQRS.TaskManagementService.WebApi", "Adapters\Web Api\CQRS.TaskManagementService.WebApi\CQRS.TaskManagementService.WebApi.csproj", "{1533C1D7-7ECC-4996-9695-DC9D06247405}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utils", "Utils", "{04817D70-5F4B-40EA-9A25-93F2B56BDEDC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CQRS.TaskManagementService.TaskManagement.Commands", "Core\Task Management\CQRS.TaskManagementService.TaskManagement.Commands\CQRS.TaskManagementService.TaskManagement.Commands.csproj", "{48C9C114-AD86-410A-9CFF-153182F271BF}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Migrations", "Migrations", "{02A7A400-21E9-4114-9710-5604FAA448A0}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRS.TaskManagementService.Utils.Migrations", "Utils\Migrations\CQRS.TaskManagementService.Utils.Migrations\CQRS.TaskManagementService.Utils.Migrations.csproj", "{8500BDB9-5D91-4F93-9394-3DD8BEC91EC6}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRS.TaskManagementService.TaskManagement.Commands", "Core\Task Management\CQRS.TaskManagementService.TaskManagement.Commands\CQRS.TaskManagementService.TaskManagement.Commands.csproj", "{48C9C114-AD86-410A-9CFF-153182F271BF}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CQRS.TaskManagementService.TaskManagement.ReadModels", "Core\Task Management\CQRS.TaskManagementService.TaskManagement.ReadModels\CQRS.TaskManagementService.TaskManagement.ReadModels.csproj", "{93055F55-BC68-44B1-9D35-BD5C0BE4BBE9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CQRS.TaskManagementService.TaskManagement.ReadModels", "Core\Task Management\CQRS.TaskManagementService.TaskManagement.ReadModels\CQRS.TaskManagementService.TaskManagement.ReadModels.csproj", "{93055F55-BC68-44B1-9D35-BD5C0BE4BBE9}"
 EndProject
 Global
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {C8DD7B32-D531-42E3-83D1-31B3E8A65E8C}
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|x64 = Debug|x64
@@ -65,18 +53,6 @@ Global
 		{1533C1D7-7ECC-4996-9695-DC9D06247405}.Release|x64.Build.0 = Release|Any CPU
 		{1533C1D7-7ECC-4996-9695-DC9D06247405}.Release|x86.ActiveCfg = Release|Any CPU
 		{1533C1D7-7ECC-4996-9695-DC9D06247405}.Release|x86.Build.0 = Release|Any CPU
-		{8500BDB9-5D91-4F93-9394-3DD8BEC91EC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8500BDB9-5D91-4F93-9394-3DD8BEC91EC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8500BDB9-5D91-4F93-9394-3DD8BEC91EC6}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{8500BDB9-5D91-4F93-9394-3DD8BEC91EC6}.Debug|x64.Build.0 = Debug|Any CPU
-		{8500BDB9-5D91-4F93-9394-3DD8BEC91EC6}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{8500BDB9-5D91-4F93-9394-3DD8BEC91EC6}.Debug|x86.Build.0 = Debug|Any CPU
-		{8500BDB9-5D91-4F93-9394-3DD8BEC91EC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8500BDB9-5D91-4F93-9394-3DD8BEC91EC6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8500BDB9-5D91-4F93-9394-3DD8BEC91EC6}.Release|x64.ActiveCfg = Release|Any CPU
-		{8500BDB9-5D91-4F93-9394-3DD8BEC91EC6}.Release|x64.Build.0 = Release|Any CPU
-		{8500BDB9-5D91-4F93-9394-3DD8BEC91EC6}.Release|x86.ActiveCfg = Release|Any CPU
-		{8500BDB9-5D91-4F93-9394-3DD8BEC91EC6}.Release|x86.Build.0 = Release|Any CPU
 		{48C9C114-AD86-410A-9CFF-153182F271BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{48C9C114-AD86-410A-9CFF-153182F271BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48C9C114-AD86-410A-9CFF-153182F271BF}.Debug|x64.ActiveCfg = Debug|Any CPU
@@ -102,14 +78,18 @@ Global
 		{93055F55-BC68-44B1-9D35-BD5C0BE4BBE9}.Release|x86.ActiveCfg = Release|Any CPU
 		{93055F55-BC68-44B1-9D35-BD5C0BE4BBE9}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{FE9FA1C0-BF30-4C97-A861-620A3DF9BDA1} = {52E74A43-18F9-4BFB-BE01-422D829B3000}
 		{075FEB67-3921-437D-AF62-1BB260596BE7} = {FE9FA1C0-BF30-4C97-A861-620A3DF9BDA1}
 		{B028762B-D79C-4F98-8433-AA430948FFF3} = {791C8F2B-4685-406B-8A53-895344C5F41C}
 		{1533C1D7-7ECC-4996-9695-DC9D06247405} = {B028762B-D79C-4F98-8433-AA430948FFF3}
-		{02A7A400-21E9-4114-9710-5604FAA448A0} = {04817D70-5F4B-40EA-9A25-93F2B56BDEDC}
-		{8500BDB9-5D91-4F93-9394-3DD8BEC91EC6} = {02A7A400-21E9-4114-9710-5604FAA448A0}
 		{48C9C114-AD86-410A-9CFF-153182F271BF} = {FE9FA1C0-BF30-4C97-A861-620A3DF9BDA1}
 		{93055F55-BC68-44B1-9D35-BD5C0BE4BBE9} = {FE9FA1C0-BF30-4C97-A861-620A3DF9BDA1}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C8DD7B32-D531-42E3-83D1-31B3E8A65E8C}
 	EndGlobalSection
 EndGlobal
